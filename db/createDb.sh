@@ -26,20 +26,19 @@ sudo systemctl restart postgresql
 # Display the status of the PostgreSQL service
 sudo systemctl status postgresql
 
-#Enter into DB
-psql -d nhl_players
+# Create Table and Insert Data
+sudo -u postgres psql -d nhl_players -c "
+CREATE TABLE players (
+  Id SERIAL PRIMARY KEY,
+  name varchar(80),
+  team varchar(80)
+);
 
-#Create Table 
-nhl_players=# create table                                                
-players (
-Id SERIAL PRIMARY KEY,
-name     varchar(80),
-team varchar(80));
+INSERT INTO players (name, team) VALUES ('EDM', 'Los Angeles');
 
-#Insert into table
-INSERT INTO players("name","team") VALUES ('EDM','Los Angeles');
-
-#Check with select
-select * from players;
+SELECT * FROM players;
+"
+# Note: The psql command is executed with the -d option to specify the "nhl_players" database.
+# The SQL commands to create the table, insert data, and select from the table are provided using the -c option.
 
 
