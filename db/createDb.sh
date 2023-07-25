@@ -17,8 +17,8 @@ sudo -u postgres psql -c "CREATE DATABASE nhl_players;"
 
 # Optional: Create a PostgreSQL user for the database
 # Replace 'username' and 'password' with desired values
-# sudo -u postgres psql -c "CREATE USER username WITH ENCRYPTED PASSWORD 'password';"
-# sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE nhl_players TO username;"
+sudo -u postgres psql -c "CREATE USER ubuntu WITH ENCRYPTED PASSWORD 'password';"
+sudo -u postgres psql -c "GRANT ALL PRIVILEGES ON DATABASE nhl_players TO ubuntu;"
 
 # Restart PostgreSQL to apply the changes
 sudo systemctl restart postgresql
